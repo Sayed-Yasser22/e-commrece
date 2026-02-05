@@ -5,12 +5,19 @@ import { GiReticule } from 'react-icons/gi'
 import { IoLogoInstagram, IoLogoYoutube } from 'react-icons/io'
 import { MdOutlineFacebook } from 'react-icons/md'
 import { RiSecurePaymentLine, RiTwitterXLine } from 'react-icons/ri'
+// import { useNavigate } from 'react-router-dom'
 
 export default function HomePages() {
+
+  
+
+  //  const navigate = useNavigate();
 
 
   return (
       <> 
+
+      
       
     <div className='bg-white relative min-h-screen flex items-center justify-center'>
      <img className=" absolute inset-0 w-full h-201 bg-center scale-x-[-1] " src="/public/533643aa8db82414f48d43a992d009dda3961386.png" alt=""/>

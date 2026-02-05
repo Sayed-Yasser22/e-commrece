@@ -1,8 +1,21 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { FaBook } from 'react-icons/fa'
+import { useAuthstore } from '../../store'
+
 
 export default function Navbar() {
+
+   const isAuthenticated = useAuthstore((state) => state.isAuthenticated)
+
+    
+
+
+   
+
+  //  console.log(isAuthenticated )
+
+  
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-black/30 border-b border-white/20">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between text-white">
@@ -54,27 +67,77 @@ export default function Navbar() {
       </div>
 
         {/* sign up login لوحدهم  */}
-        <ul className="flex items-center gap-4">
-          <li>
+
+
+        <ul className=" btn_btn flex items-center gap-4">
+
+
+
+          { <li>
             <NavLink
               to="/login"
-              className="bg-[#D9176C] px-4 py-2 rounded-2xl"
-            >
-              Login
+              className="bg-[#D9176C] px-4 py-2 rounded-2xl">
+          
+            {
+              isAuthenticated ? "logut" : "log in"
+            }
+             
             </NavLink>
-          </li>
+          </li> }
 
-          <li>
+        
+
+          {<li>
             <NavLink
               to="/sign-up"
               className="bg-pink-950 px-4 py-2 rounded-2xl"
             >
               Sign Up
             </NavLink>
-          </li>
+          </li> }
         </ul>
 
       </div>
     </header>
   )
 }
+
+                {/* {
+     isAuthenticated ? (
+       <li>
+         <button
+           
+           className="bg-red-600 px-4 py-2 rounded-2xl">
+                  
+          
+           
+         </button>
+         
+       </li>
+       
+     ) : 
+     
+     (
+       <>
+         <li>
+           <NavLink
+             to="/login"
+             className="bg-[#D9176C] px-4 py-2 rounded-2xl"
+             >
+            login
+           </NavLink>
+         </li>
+   
+   
+   
+         <li>
+           <NavLink
+             to="/sign-up"
+             className="bg-pink-950 px-4 py-2 rounded-2xl"
+           >
+             Sign Up
+           </NavLink>
+         </li>
+       </>
+     )
+   } */}
