@@ -4,6 +4,7 @@ import Register from "../Register";
 import Applayout from "../../components/layout/Applayout";
 import HomePages from './../HomePages';
 import AboutPages from "../AboutPages";
+import Books from "../Books";
 
 
 const routes =createBrowserRouter([
@@ -30,6 +31,11 @@ const routes =createBrowserRouter([
       path:"/sign-up",
       element:<Register/>
     },
+
+    {
+      path: "/books",
+      element:<Books/>
+    }
 
     
 

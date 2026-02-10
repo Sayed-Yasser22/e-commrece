@@ -20,9 +20,11 @@ export default function HomePages() {
       
       
     <div className='bg-white relative min-h-screen flex items-center justify-center'>
-     <img className=" absolute inset-0 w-full h-201 bg-center scale-x-[-1] " src="/public/533643aa8db82414f48d43a992d009dda3961386.png" alt=""/>
+     <img className=" absolute inset-0 w-full h-201 bg-center scale-x-[-1] " src="533643aa8db82414f48d43a992d009dda3961386.png" alt=""/>
 
-     <div className="relative  z-10 flex items-center w-[90%] max-w-134 h-14.75 bg-white rounded-full pl-6 pr-2 shadow-2xl">
+     <div className='  z-10  absolute inset-0 bg-[#3B2F4A]/'></div>
+
+     <div className="rflex items-center w-[90%] max-w-134 h-14.75 bg-white rounded-full pl-6 pr-2 shadow-2xl">
           <input
             type="text"
             placeholder="Search"

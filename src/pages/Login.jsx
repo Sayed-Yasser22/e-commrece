@@ -21,7 +21,9 @@ const Login = () => {
   const handlelogin = async (values) => {
     try {
       const res = await axios.post("https://bookstore.eraasoft.pro/api/login", values);
+      // console.log(res.data.data.user)
       login(res.data.data.token)
+      localStorage.setItem("profile", JSON.stringify(res.data.data.user))
       
       navigate("/")
     } catch (error) {
@@ -29,43 +31,7 @@ const Login = () => {
     }
   }
   
-  // const handlelogin = async (values) => {
-  //   try {
-      
-  //     const formData = new FormData();
-  //     formData.append("email", values.email);
-  //     formData.append("password", values.password);
-      
-  //     const res = await axios.post(
-  //       "https://bookstore.eraasoft.pro/api/login",
-  //       formData,
-  //       {
-  //         headers: {
-  //           "Content-Type": "multipart/form-data",
-  //         },
-  //       }
-  //     );
-      
-  //     // const token = res.data.data.token;
-  //     // localStorage.setItem("userToken", token);
-
-
-      
-  //     console.log("Login Success:", res.data);
-      
-  //     login(res.data.data.token)
-      
-
-    
-
-  //     navigate("/")
-    
-
-  //   } catch (error) {
-  //     console.log("Login Error:", error.response?.data);
-  //   }
-  // };
-
+  
   const loginSchema = Yup.object({
     email: Yup.string()
       .email("Invalid email format")
@@ -198,6 +164,42 @@ export default Login;
 
 
 
+    // const handlelogin = async (values) => {
+    //   try {
+        
+    //     const formData = new FormData();
+    //     formData.append("email", values.email);
+    //     formData.append("password", values.password);
+        
+    //     const res = await axios.post(
+    //       "https://bookstore.eraasoft.pro/api/login",
+    //       formData,
+    //       {
+    //         headers: {
+    //           "Content-Type": "multipart/form-data",
+    //         },
+    //       }
+    //     );
+        
+    //     // const token = res.data.data.token;
+    //     // localStorage.setItem("userToken", token);
+  
+  
+        
+    //     console.log("Login Success:", res.data);
+        
+    //     login(res.data.data.token)
+        
+  
+      
+  
+    //     navigate("/")
+      
+  
+    //   } catch (error) {
+    //     console.log("Login Error:", error.response?.data);
+    //   }
+    // };
 
 
 

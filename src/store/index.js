@@ -13,17 +13,19 @@ export const useAuthstore = create(persist(
             token,
             isAuthenticated: true
         })
-    }
+    },
+
+    logout:() => {
+         set({
+    
+             token: null,
+             isAuthenticated: false,
+         })
+     }
+
 }),
     {
         name: "auth-token"
     }
+    
 ))
-
-// logout:() => {
-//      set({
-
-//          token: null,
-//          isAuthenticated: false,
-//      })
-//  }

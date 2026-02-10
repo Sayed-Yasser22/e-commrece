@@ -79,11 +79,10 @@ export default function AboutPages() {
 <img  className='absolute inset-0 w-full h-full object-cover ' src='d14d7655b7dfc0cacd1072cd70a68c579726248e.jpg' alt=''></img>
 
 
-<div className="absolute inset-0 bg-[#3B2F4A]/79"></div>
+<div className="absolute inset-0 bg-black/70"></div>
 
 
-
-  <div class="container mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+  <div class=" container mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
     
     <div className='mx-auto py-30'>
       <h3 class="text-5xl font-semibold text-white mb-2">Have a Questions?</h3>
