@@ -33,12 +33,10 @@ export default function Profile() {
           </div>
         </div>
 
-        {/* 3. بوكس البيانات (Information Card) */}
         <div className="bg-white rounded-2xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] p-8 md:p-10">
           <h2 className="text-center text-gray-700 text-lg font-semibold mb-8">General Information</h2>
           
           <form className="space-y-5">
-            {/* صف الاسم الأول والأخير */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-1">
                 <label className="text-xs text-gray-400 font-medium ml-1">First Name</label>
@@ -58,7 +56,6 @@ export default function Profile() {
               </div>
             </div>
 
-            {/* الإيميل */}
             <div className="space-y-1">
               <label className="text-xs text-gray-400 font-medium ml-1">Email</label>
               <input 
@@ -68,7 +65,6 @@ export default function Profile() {
               />
             </div>
 
-            {/* رقم الهاتف */}
             <div className="space-y-1">
               <label className="text-xs text-gray-400 font-medium ml-1">Phone number</label>
               <input 
@@ -78,7 +74,6 @@ export default function Profile() {
               />
             </div>
 
-            {/* العنوان */}
             <div className="space-y-1">
               <label className="text-xs text-gray-400 font-medium ml-1">Address</label>
               <input 
@@ -88,7 +83,6 @@ export default function Profile() {
               />
             </div>
 
-            {/* زر التحديث */}
             <div className="flex justify-center pt-6">
               <button 
                 type="submit" 
