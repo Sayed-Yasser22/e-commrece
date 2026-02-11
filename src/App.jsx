@@ -1,4 +1,4 @@
-import { RouterProvider } from "react-router-dom";
+import { Route, RouterProvider } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import routes from "./pages/routes/routes";

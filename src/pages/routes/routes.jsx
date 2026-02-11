@@ -5,6 +5,8 @@ import Applayout from "../../components/layout/Applayout";
 import HomePages from './../HomePages';
 import AboutPages from "../AboutPages";
 import Books from "../Books";
+import Profile from "../Profile";
+
 
 
 const routes =createBrowserRouter([
@@ -35,7 +37,14 @@ const routes =createBrowserRouter([
     {
       path: "/books",
       element:<Books/>
-    }
+    },
+    {
+      path: "/profile",
+      element:<Profile/>
+    },
+    
+
+    
 
     
 

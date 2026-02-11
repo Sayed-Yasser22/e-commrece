@@ -1,27 +1,42 @@
-import React from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { FaBook } from 'react-icons/fa'
 import { useAuthstore } from '../../store'
 import { MdFavoriteBorder } from 'react-icons/md'
 import { SlBasket } from 'react-icons/sl'
+import { IoChevronDown } from "react-icons/io5"
+
 
 
 export default function Navbar() {
 
+
    const isAuthenticated = useAuthstore((state) => state.isAuthenticated)
+   const cart = useAuthstore((state) => state.cart)
    const logout = useAuthstore((state) => state.logout)
 
     const navigate = useNavigate();
 
     const userprofile = JSON.parse(localStorage.getItem("profile"))
 
+  const [open, setOpen] = useState(false)
+  const dropdownRef = useRef()
 
-    
 
+useEffect(() => {
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setOpen(false)
+    }
+  }
 
+  document.addEventListener("mousedown", handleClickOutside)
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside)
+  }
+}, [])
    
 
-  //  console.log(isAuthenticated )
 
   
   return (
@@ -77,60 +92,108 @@ export default function Navbar() {
         {/* sign up login لوحدهم  */}
 
 
-        <ul className=" btn_btn flex items-center gap-4">
+       <ul className="flex items-center gap-4">
 
+  {isAuthenticated ? (
+  <li className="relative" ref={dropdownRef}>
+    
+    <div
+      onClick={() => setOpen(!open)}
+      className="profile flex items-center gap-8 cursor-pointer"
+    >
+     <div className="icons flex items-center gap-4">
+  <MdFavoriteBorder size="30px" className="cursor-pointer" />
+  
+  {/* الجزء الجديد الخاص ب السلة */}
+  <div className="relative cursor-pointer">
+    <SlBasket size="30px" />
+    
+    {cart.length > 0 && (
+      <span className="absolute -top-2 -right-2 bg-pink-600 text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full border-2 border-[#1a1a1a]">
+        {cart.length}
+      </span>
+    )}
+  </div>
+</div>
 
+      <div className="profile_details flex items-center gap-2">
+        <img
+          className="w-12 h-12 rounded-full"
+          src="7098886df02b2521176bde95e31347ff1428d87f.jpg"
+          alt=""
+        />
 
-          { <li>
-            <NavLink
-              to="/login"
-              className="" onClick={isAuthenticated ? logout : () => {
-                navigate("/login")
-              }}>
-          
-            {
-              isAuthenticated ? (
-                <>
-                <div className='profile flex items-center gap-8 '>
-                  <div className='icons flex items-center gap-4 '>
+        <div className="info">
+          <div className="name">
+            {userprofile?.first_name} {userprofile?.last_name}
+          </div>
+          <div className="email text-sm opacity-70">
+            {userprofile?.email}
+          </div>
+        </div>
 
-                    <MdFavoriteBorder size={"30px"}/>
-                    <SlBasket size={"30px"} />
+        <IoChevronDown className={`transition ${open ? "rotate-180" : ""}`} />
+      </div>
+    </div>
 
-                  </div>
-                  <div className='profile_details flex items-center gap-2'>
-                <img className='w-12.5 h-12.5 rounded-full' src='7098886df02b2521176bde95e31347ff1428d87f.jpg' alt=''></img>
-                <div className='info'>
-                <div className='name'>{userprofile?.first_name} {userprofile?.last_name} </div>
-                <div className='email'> {userprofile?.email} </div>
-                </div>
-                  </div>
+    {/* Dropdown */}
+    {open && (
+      <div className="absolute right-0 mt-4 w-56 bg-white text-black rounded-xl shadow-lg p-3 z-50">
 
-                </div>
-              </>
-              ) :(
-                <>
-                <Link className='px-4 py-2.75 mx-3 bg-pink-500 text-white rounded-2xl' to={"/login"}>login</Link>
-                <Link className='px-4 py-2.75 bg-white text-pink-500 border border-pink-500 rounded-2xl' to={"/sign-up"}>sign-up</Link>
-                </>
-              ) 
-            }
-             
-            </NavLink>
-            
-          </li> }
+        <button
+          onClick={() => {
+            navigate("/profile")
+            setOpen(false)
+          }}
+          className="w-full text-left px-3 py-2 hover:bg-gray-100 rounded-lg"
+        >
+          Profile
+        </button>
 
-        
+        <button
+          onClick={() => {
+            navigate("/orders")
+            setOpen(false)
+          }}
+          className="w-full text-left px-3 py-2 hover:bg-gray-100 rounded-lg"
+        >
+          Order History
+        </button>
 
-          {/* {<li>
-            <NavLink
-              to="/sign-up"
-              className="bg-pink-950 px-4 py-2 rounded-2xl"
-            >
-              Sign Up
-            </NavLink>
-          </li> } */}
-        </ul>
+        <button className="w-full text-left px-3 py-2 hover:bg-gray-100 rounded-lg">
+          Address
+        </button>
+
+        <button className="w-full text-left px-3 py-2 hover:bg-gray-100 rounded-lg">
+          Help
+        </button>
+
+        <hr className="my-2" />
+
+        <button
+          onClick={() => {
+            logout()
+            navigate("/login")
+          }}
+          className="w-full text-left px-3 py-2 text-red-500 hover:bg-gray-100 rounded-lg"
+        >
+          Log Out
+        </button>
+
+      </div>
+    )}
+  </li>
+) : (
+    <>
+      <li>
+        <Link to="/login">Login</Link>
+      </li>
+      <li>
+        <Link to="/sign-up">Sign up</Link>
+      </li>
+    </>
+  )}
+  </ul>
 
       </div>
     </header>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaCarSide } from 'react-icons/fa'
+import { FaCarSide, FaSearch } from 'react-icons/fa'
 import { FcCustomerSupport } from 'react-icons/fc'
 import { GiReticule } from 'react-icons/gi'
 import { IoLogoInstagram, IoLogoYoutube } from 'react-icons/io'
@@ -22,16 +22,20 @@ export default function HomePages() {
     <div className='bg-white relative min-h-screen flex items-center justify-center'>
      <img className=" absolute inset-0 w-full h-201 bg-center scale-x-[-1] " src="533643aa8db82414f48d43a992d009dda3961386.png" alt=""/>
 
-     <div className='  z-10  absolute inset-0 bg-[#3B2F4A]/'></div>
-
-     <div className="rflex items-center w-[90%] max-w-134 h-14.75 bg-white rounded-full pl-6 pr-2 shadow-2xl">
-          <input
-            type="text"
-            placeholder="Search"
-            className="  grow bg-transparent border-none outline-none text-gray-700 text-lg placeholder:text-gray-400"/>
-            </div>
       
+      
+    <div className="absolute inset-0 flex items-center justify-center">
+    <div className="relative w-full max-w-xl">
+      <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-pink-500" />
+      <input
+        type="text"
+        placeholder="Search"
+        className="w-full bg-white border border-pink-500 rounded-full py-5 pl-12 focus:outline-none focus:ring-2 focus:ring-pink-500"
+      />
     </div>
+  </div>
+
+</div>
 
 
       <section className="py-60 bg-[#f5f5f5] ">
@@ -355,63 +359,7 @@ export default function HomePages() {
 </section>
 
 
-{/*End */}
 
-{/* Start footer */}
-
-
-{/* <footer className="bg-[#3B2F4A] text-white py-12 px-6 md:px-20">
-  
-  <div className="flex flex-col md:flex-row justify-between items-center border-b border-gray-600 pb-8 gap-6">
-    
-   
-    <div className="flex items-center gap-2">
-      <div className="bg-white p-1 rounded-sm">
-        
-        <svg className="w-5 h-5 text-[#3B2F4A]" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 21l-8-4.5v-9L12 3l8 4.5v9l-8 4.5zM12 5.3L6 8.7v6.6l6 3.4 6-3.4V8.7l-6-3.4z" />
-        </svg>
-      </div>
-      <span className="font-bold text-lg tracking-tight">Bookshop</span>
-    </div>
-
-    
-    <nav className="flex gap-8 text-sm font-medium">
-      <a href="#" className="text-pink-500 hover:text-pink-400">Home</a>
-      <a href="#" className="hover:text-pink-500 transition-colors">Books</a>
-      <a href="#" className="hover:text-pink-500 transition-colors">About Us</a>
-    </nav>
-
-    
-    <div className="flex gap-5">
-      <a href="#" className="hover:scale-110 transition-transform"><span className="text-xl text-gray-300 hover:text-white"><MdOutlineFacebook /></span></a>
-
-      <a href="#" className="hover:scale-110 transition-transform"><span className="text-xl text-gray-300 hover:text-white"><IoLogoInstagram /></span></a>
-
-      <a href="#" className="hover:scale-110 transition-transform"><span className="text-xl text-gray-300 hover:text-white"> <IoLogoYoutube /></span></a>
- 
-      <a href="#" className="hover:scale-110 transition-transform"><span className="text-xl text-gray-300 hover:text-white"><RiTwitterXLine /></span></a>
-    </div>
-  </div>
-
- 
-  <div className="flex flex-col md:flex-row justify-between items-center pt-6 text-[11px] text-gray-400 gap-4">
-    <p>&lt;Developed By&gt; EraaSoft &lt;All Copy Rights Reserved @2024</p>
-    
-    <div className="flex items-center gap-4">
-     
-      <div className="flex items-center gap-1">
-        <span>🌐</span>
-      </div>
-      
-      
-      <div className="border border-gray-500 px-3 py-1 rounded flex items-center gap-2 cursor-pointer hover:bg-gray-700">
-        <span>English</span>
-        <span className="text-[8px]">▼</span>
-      </div>
-    </div>
-  </div>
-</footer> */}
 
 
     </>
