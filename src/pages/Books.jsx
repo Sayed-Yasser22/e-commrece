@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaStar, FaRegHeart, FaShoppingCart, FaSearch } from "react-icons/fa";
 import { useAuthstore } from '../store';
+import { Link } from 'react-router-dom';
 const categories = [
   "Business",
   "Self Help",
@@ -14,7 +15,7 @@ const categories = [
 ];
 
 const books = Array(3).fill({
-  id: Math.random(), // معرف فريد لكل كتاب
+  id: Math.random(),   // معرف فريد لكل كتاب
   title: "Rich Dad And Poor Dad",
   description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et ultricies est. Aliquam in justo varius, sagittis neque ut, malesuada leo.",
@@ -98,21 +99,28 @@ export default function BooksSection() {
               {books.map((book, i) => (
                 <div
                   key={i}
-                  className="bg-white rounded-xl p-5 flex gap-5 shadow-sm"
-                >
+                  className="bg-white rounded-xl p-5 flex gap-5 shadow-sm">
+                
                   {/* Image */}
+                  <Link to={`/product/${book.id}`}>
+                  
                   <img
                     src={book.image}
                     alt={book.title}
                     className="w-32 h-40 object-cover rounded-lg"
                   />
+                  
+                  </Link>
 
                   {/* Info */}
                   <div className="flex-1">
                     <div className="flex justify-between">
+                      <Link to={`/product/${book.id}`}>
                       <h3 className="font-semibold text-lg">
                         {book.title}
                       </h3>
+                      
+                      </Link>
                       <span className="text-xs border border-yellow-400 text-yellow-600 px-2 py-1 rounded-full">
                         25% Discount code: NE212
                       </span>

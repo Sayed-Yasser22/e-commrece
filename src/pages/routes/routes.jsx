@@ -6,6 +6,7 @@ import HomePages from './../HomePages';
 import AboutPages from "../AboutPages";
 import Books from "../Books";
 import Profile from "../Profile";
+import ProductDetails from "../ProductDetails";
 
 
 
@@ -41,6 +42,10 @@ const routes =createBrowserRouter([
     {
       path: "/profile",
       element:<Profile/>
+    },
+    {
+      path: "/product/:id",
+      element:<ProductDetails/>
     },
     
 

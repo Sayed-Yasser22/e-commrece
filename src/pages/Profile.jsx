@@ -8,7 +8,7 @@ export default function Profile() {
       <div 
         className="h-62.5 w-full bg-cover bg-center relative">
     
-        <img className='h-62.5 w-full bg-cover bg-center relative' src='/public/533643aa8db82414f48d43a992d009dda3961386.png'></img>
+        <img className='h-62.5 w-full bg-cover bg-center relative' src='533643aa8db82414f48d43a992d009dda3961386.png'></img>
       </div>
 
       <div className="max-w-150 mx-auto px-4">
